@@ -1,0 +1,10 @@
+public class TestCircle2D {
+    public static void main(String[] args){
+        Circle2D circle1 = new Circle2D(4,5,3);
+        Circle2D circle2 = new Circle2D(5,6,2);
+        System.out.println("circle1's perimiter is " + circle1.getPerimeter());
+        System.out.println("circle1's area is " + circle1.getArea());
+        System.out.println("circle2's perimiter is " + circle2.getPerimeter());
+        System.out.println("circle2's area is " + circle2.getArea());
+    }
+}
