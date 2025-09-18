@@ -1,0 +1,44 @@
+public class Circle2D {
+    private double x;
+    private double y;
+    private double radius;
+
+    // Create a circle without parameters
+    public Circle2D(){
+        this.x = 0;
+        this.y = 0;
+        this.radius = 1;
+    }
+
+    // Create a circle with specific parameters
+    public Circle2D(double x, double y, double radius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    // Get x-coordinate method
+    public double getX(){
+        return x;
+    }
+
+    // Get y-coordinate method
+    public double getY(){
+        return y;
+    }
+
+    // Get radius method
+    public double getRadius(){
+        return radius;
+    }
+
+    // Method to calculate area
+    public double getArea(){
+        return radius * radius * Math.PI;
+    }
+
+    // Method to calculate perimeter
+    public double getPerimeter(){
+        return 2 * radius * Math.PI;
+    }
+}
