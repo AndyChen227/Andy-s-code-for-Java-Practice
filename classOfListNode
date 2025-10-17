@@ -1,0 +1,19 @@
+import java.util.*;
+public class ListNode {
+    // Data in the ListNode
+    public int data;
+    // Point to the next ListNode
+    public ListNode next;
+
+    // Create a function type 1
+    public ListNode(int data) {
+        this.data = data;
+        this.next = null;
+    }
+
+    // Create a function type 2
+    public ListNode(int data, ListNode next) {
+        this.data = data;
+        this.next = next;
+    }
+}
