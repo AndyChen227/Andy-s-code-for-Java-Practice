@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.util.Random;
+import java.util.Arrays;
+public class LotteryGame {
+    public static void main(String[] args){
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the luckyNumber and the number entered by user
+        int luckyNumber = random.nextInt(900) + 100;
+        System.out.println("Please enter your lucky number between 100 and 999: ");
+        int guessNumber = scanner.nextInt();
+
+        // Step 1: Split these numbers to single number
+        int luckyNumberA = luckyNumber / 100;
+        int luckyNumberB = (luckyNumber / 10) % 10;
+        int luckyNumberC = luckyNumber % 10;
+
+        int guessNumberA = guessNumber / 100;
+        int guessNumberB = (guessNumber / 10) % 10;
+        int guessNumberC = guessNumber % 10;
+
+        // Step 2: Create an Array list and String list for luckyNumber and guessNumber
+        String luckyNumberList = "" + luckyNumberA + luckyNumberB + luckyNumberC;
+        String guessNumberList = "" + guessNumberA + guessNumberB + guessNumberC;
+
+        int[] luckyNumberArray = {luckyNumberA,luckyNumberB,luckyNumberC};
+        int[] guessNumberArray = {guessNumberA,guessNumberB,guessNumberC};
+        // Sort two arrays
+        Arrays.sort(luckyNumberArray);
+        Arrays.sort(guessNumberArray);
+
+        // Use if and else-if statement to decide whether user wins the prize
+        if (luckyNumberList == guessNumberList){
+            // If user got all numbers correct and correct sequence, get 30,000$
+            System.out.println("Congrats! You got the biggest prize and won 30,000$! ");
+        } else if (Arrays.equals(luckyNumberArray, guessNumberArray)){
+            // If user got all numbers correct without correct sequence, get 8,000$
+            System.out.println("Congrats! You got the second prize and won 8,000$! ");
+        } else if (hasCommon(luckyNumberArray, guessNumberArray)){
+            // If user got one number correct, get 500$
+            System.out.println("Congrats! You got the third prize and won 500$! ");
+        } else {
+            // If user didn't get a single number correct, get nothing
+            System.out.println("Sorry! It's your bad luck day! ");
+        }
+        // Tell user what the lucky number is
+        System.out.println("The lucky number is " + luckyNumber);
+    }
+
+    // Build a new method to check whether these arrays contain the same value
+    public static boolean hasCommon(int[]a, int[]b){
+        for(int i = 0; i < a.length; i++){
+            for(int j = 0; j < b.length;j++){
+                if(a[i] == b[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
