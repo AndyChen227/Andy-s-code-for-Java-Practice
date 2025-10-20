@@ -7,13 +7,17 @@ public class ListNode {
 
     // Create a function type 1
     public ListNode(int data) {
-        this.data = data;
-        this.next = null;
+        this(data, null);
     }
 
     // Create a function type 2
     public ListNode(int data, ListNode next) {
         this.data = data;
         this.next = next;
+    }
+
+    // Create a function type 3
+    public ListNode() {
+        this(0, null);
     }
 }
