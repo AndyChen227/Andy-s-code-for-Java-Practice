@@ -1,0 +1,23 @@
+import java.util.*;
+public class Parenthesize {
+    public static String parenthesize(String str, int n) {
+        // TODO: Your code here
+        if (n < 0) {
+            throw new IllegalArgumentException("need be positive!");
+        }
+        if (n == 0) {
+            return str;
+        }
+        if (n == 1) {
+            return "(" + parenthesize(str, 0) + ")";
+        } else {
+            return "(" + parenthesize(str, n-1) + ")";
+        }
+        
+    }
+
+    public static void main(String[] args) {
+        System.out.println(parenthesize("CSE123, Autumn 2025", 0));
+        System.out.println(parenthesize("James Wilcox", 2));
+    }
+}
