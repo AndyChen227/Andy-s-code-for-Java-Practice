@@ -1,0 +1,48 @@
+public class AssortedRecursion {
+    public static void reverseNumber(int n) {
+        if (n / 10 == 0) {
+            System.out.println(n);
+        } else if (n < 0) {
+            System.out.print("-");
+            reverseNumber(-n);
+        } else {
+            /* write the recursive case(s) here! */
+            System.out.println(n % 10);
+            reverseNumber(n / 10);
+        }
+    }
+
+    public static int findFibonacci(int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        if (i == 0) {
+            return 0;
+        } else if (i == 1) {
+            return 1;
+        } else {
+            return findFibonacci(i - 1) + findFibonacci(i - 2);
+        }
+    }
+
+    public static int toPower(int base, int exp) {
+        if (base < 0 || exp < 0) {
+            throw new IllegalArgumentException();
+        }
+        
+        /* rewrite recursively! */
+        if (exp == 0) {
+            return 1;
+        } else if (exp == 1) {
+            return base;
+        } else {
+            return base * toPower(base, exp - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        // TODO: Write testing code here!
+        reverseNumber(1234);
+    }
+}
