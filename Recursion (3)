@@ -1,0 +1,19 @@
+public class Substring {
+    public static String substring(String s, int i, int j) {
+        // TODO: Your code here
+        if (i < 0 || i > j || j > s.length()) {
+            throw new IllegalArgumentException("please enter" + 
+            "valid number");
+        }
+        if (i == j) {
+            return "";
+        } else {
+            return s.charAt(i) + substring(s, i + 1, j);
+        }
+    }
+    
+    public static void main(String[] args) {
+        // TODO: Write testing code here!
+        substring("ABCD", 0, 2);
+    }
+}
