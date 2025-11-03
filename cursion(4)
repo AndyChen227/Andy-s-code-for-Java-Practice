@@ -1,0 +1,27 @@
+import java.util.*;
+public class ReverseArray {
+
+    public static void main(String[] args) {
+        int [] arr = new int[]{0,1,2,3,5,7,3,7,2};
+        System.out.println(Arrays.toString(arr));
+        reverse(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    public static void reverse(int[] arr) {
+        // Your code here!
+        if (arr == null) {
+            throw new IllegalArgumentException("arr can not be null!");
+        }
+        helperMethod(arr, 0, arr.length-1);        
+    }
+
+    public static void helperMethod(int[] arr, int left, int right) {
+        if (left <= right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            helperMethod(arr, left + 1, right - 1);
+        }
+    }
+}
