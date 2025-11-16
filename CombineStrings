@@ -1,1 +1,30 @@
+public class CombineStrings {
+    public static void main(String[] args) {
+        System.out.println(combineStrings("aaab", "aacd"));
+        System.out.println(combineStrings("seattle", "computer"));
+        System.out.println(combineStrings("monitor", "nightstand"));
+    }
 
+    public static String combineStrings(String str1, String str2) {
+        // Your code here!
+        return combineStrings("", str1, str2);
+    }
+
+    private static String combineStrings(String combine, String str1, String str2) {
+        // base case stopping point
+        if (str1.length() == 0) {
+            return combine + str2;
+        } else if (str2.length() == 0) {
+            return combine + str1;
+        } else {
+            // consider the recursion case
+            char one = str1.charAt(0);
+            char two = str2.charAt(0);
+            if (one <= two) {
+                return combineStrings(combine + one, str1.substring(1), str2);
+            } else {
+                return combineStrings(combine + two, str1, str2.substring(1));
+            }
+        }
+    }
+}
