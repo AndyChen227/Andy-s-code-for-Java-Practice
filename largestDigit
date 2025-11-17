@@ -1,0 +1,25 @@
+public class LargestDigit {
+    public static int largestDigit(int n) {
+        // TODO: Your code here
+        if (n < 0) {
+            return largestDigit(-n);
+        }
+        return largestDigit(n, 0);
+    }
+    public static int largestDigit(int n, int max) {
+        if (n < 10) {
+            return Math.max(n, max);
+        } else {
+            int lastDigit = n % 10;
+            int newMax = Math.max(lastDigit, max);
+            
+            return largestDigit(n / 10, newMax);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(largestDigit(3));
+        System.out.println(largestDigit(845));
+        System.out.println(largestDigit(14263203));
+    }
+}
