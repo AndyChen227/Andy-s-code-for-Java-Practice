@@ -1,0 +1,23 @@
+public class PrintBinary {
+    public static void printBinary(int n) {
+        // TODO: Your code here
+        if (n < 0) {
+            throw new IllegalArgumentException(" n can not be smaller than 0!");
+        }
+        String result = "";
+        printBinary(n, result);
+    }
+
+    public static void printBinary(int n, String result) {
+        if (n == 0) {
+            System.out.println(result);
+        } else {
+            printBinary(n - 1, result + 0);
+            printBinary(n - 1, result + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        printBinary(3);
+    }
+}
