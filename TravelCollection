@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Travel {
+    public static void travel(int x, int y) {
+        // TODO: Your code here
+        List<String> path = new ArrayList<>();
+        travel(x, y, path);
+    }
+
+    public static void travel(int x, int y, List<String> path) {
+        // base case
+        if (x == 0 && y == 0) {
+            System.out.println(path);
+        } else {
+            if (x > 0) {
+                path.add("E");
+                travel(x - 1, y, path);
+                path.remove(path.size() - 1);
+            }
+            
+            if (y > 0) {
+                path.add("N");
+                travel(x, y - 1, path);
+                path.remove(path.size() - 1);
+            }
+            
+            if (x > 0 && y > 0) {
+                path.add("NE");
+                travel(x - 1, y - 1, path);
+                path.remove(path.size() - 1);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        travel(1, 2);
+    }
+}
