@@ -1,0 +1,45 @@
+import java.util.*;
+public class LineArrangements {
+    public static void lineArrangements(List<String> people, String p1, String p2) {
+        // TODO: your code here
+        // Create a new list to store the sequence
+        List<String> result = new ArrayList<>();
+        lineArrangements(people, result, p1, p2);
+    }
+
+    private static void lineArrangements(List<String> people, List<String> result, String p1, String p2) {
+        if (people.isEmpty()) {
+            if (!adjecentCheck(result, p1, p2)) {
+                System.out.println(result);
+            }
+        } else {
+            for (int i = 0; i < people.size(); i++) {
+            String person = people.get(i);
+            result.add(person);
+            people.remove(i);
+            lineArrangements(people, result, p1, p2);
+
+            result.remove(result.size() - 1);
+            people.add(i, person);
+            }
+        }
+    }
+
+    private static boolean adjecentCheck(List<String> people, String p1, String p2) {
+        for (int i = 0; i < people.size() - 1; i++) {
+            String a = people.get(i);
+            String b = people.get(i + 1);
+
+            if ((a.equals(p1) && b.equals(p2)) || (a.equals(p2) && b.equals(p1))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        // Write testing code here!
+        List<String> people = new ArrayList<>(List.of("Trien", "Cora", "Nichole"));
+        lineArrangements(people, "Cora", "Nichole");
+    }
+}
